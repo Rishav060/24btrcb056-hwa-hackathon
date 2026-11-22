@@ -79,7 +79,13 @@
                 <span>Total</span>
               </div>
               <div class="cart-items" id="cart-items"></div>
-              <a class="back-link" href="product.html">&larr; Keep exploring</a>
+              <div class="cart-cta-row">
+                <a class="back-link" href="product.html">&larr; Keep exploring</a>
+                <a class="btn btn-primary btn-cart-checkout" href="checkout.html" data-checkout-link>
+                  <span>Proceed to checkout</span>
+                  <span class="btn-price" data-summary-total-inline>$0.00</span>
+                </a>
+              </div>
             </div>
 
             <div class="cart-empty glass" data-cart-empty hidden>
@@ -113,7 +119,10 @@
                 <span>Total</span>
                 <strong data-summary-total>$0.00</strong>
               </div>
-              <a class="btn btn-primary summary-cta" href="checkout.html" data-checkout-link>Continue to checkout</a>
+              <a class="btn btn-primary summary-cta" href="checkout.html" data-checkout-link>
+                <span>Proceed to checkout</span>
+                <span class="btn-price" data-summary-total-inline>$0.00</span>
+              </a>
               <p class="summary-note">No payment is taken. SCENT ENGINE is a design concept, and every order here belongs to the concept experience.</p>
               <ul class="summary-perks">
                 <li><span class="pulse-dot" aria-hidden="true"></span> Six scent cartridges included</li>
@@ -126,6 +135,16 @@
       </div>
     </section>
   </main>
+
+  <div class="cart-sticky-bar" aria-label="Checkout">
+    <div class="cart-sticky-meta">
+      <span>Total</span>
+      <strong data-summary-total-inline>$0.00</strong>
+    </div>
+    <a class="btn btn-primary cart-sticky-cta" href="checkout.html" data-checkout-link>
+      <span>Proceed to checkout</span>
+    </a>
+  </div>
 
   <footer class="site-footer">
     <div class="container">

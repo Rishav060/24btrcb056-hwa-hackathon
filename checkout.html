@@ -77,7 +77,7 @@
         </div>
 
         <div class="checkout-layout">
-          <form class="checkout-form glass" data-checkout-form data-order-endpoint="/api/order" data-reveal>
+          <form class="checkout-form glass" data-checkout-form data-order-endpoint="/api/order" method="post" action="/api/order">
             <div class="form-section">
               <p class="form-legend"><span>01</span> Contact</p>
               <div class="field-grid">
@@ -149,7 +149,7 @@
             <p class="form-error" data-form-error role="alert" hidden></p>
 
             <button class="btn btn-primary btn-checkout" type="submit" data-checkout-submit>
-              <span data-checkout-label>Place concept order</span>
+              <span data-checkout-label>Place order</span>
               <span class="btn-price" data-checkout-total>$54.99</span>
             </button>
             <p class="secure-line">

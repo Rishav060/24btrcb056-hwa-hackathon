@@ -3,6 +3,7 @@
 
   const CART_KEY = 'scent-engine-cart-v1';
   const ORDER_KEY = 'scent-engine-last-order';
+  const ORDER_BACKUP_KEY = 'scent-engine-order-backup';
   const PRODUCT = {
     id: 'scent-engine',
     name: 'SCENT ENGINE',
@@ -216,7 +217,8 @@
 
     const subtotalNode = document.querySelector('[data-summary-subtotal]');
     const totalNode = document.querySelector('[data-summary-total]');
-    const checkoutLink = document.querySelector('[data-checkout-link]');
+    const inlineTotalNodes = document.querySelectorAll('[data-summary-total-inline]');
+    const checkoutLinks = document.querySelectorAll('[data-checkout-link]');
 
     const render = (cart) => {
       const count = countItems(cart);
@@ -248,13 +250,16 @@
 
       if (subtotalNode) subtotalNode.textContent = format(subtotal);
       if (totalNode) totalNode.textContent = format(subtotal);
+      inlineTotalNodes.forEach((node) => {
+        node.textContent = format(subtotal);
+      });
 
-      if (checkoutLink) {
+      checkoutLinks.forEach((link) => {
         const disabled = count === 0;
-        checkoutLink.classList.toggle('is-disabled', disabled);
-        checkoutLink.setAttribute('aria-disabled', String(disabled));
-        checkoutLink.setAttribute('href', disabled ? '#' : 'checkout.html');
-      }
+        link.classList.toggle('is-disabled', disabled);
+        link.setAttribute('aria-disabled', String(disabled));
+        link.setAttribute('href', disabled ? '#' : 'checkout.html');
+      });
     };
 
     itemsRoot.addEventListener('click', (event) => {
@@ -282,11 +287,14 @@
       setQuantity(row.dataset.scent, input.value);
     });
 
-    if (checkoutLink) {
-      checkoutLink.addEventListener('click', (event) => {
-        if (checkoutLink.classList.contains('is-disabled')) event.preventDefault();
+    checkoutLinks.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        if (link.classList.contains('is-disabled')) {
+          event.preventDefault();
+          showToast('Your bag is empty', 'Meet the engine');
+        }
       });
-    }
+    });
 
     document.addEventListener('cart:updated', (event) => render(event.detail.cart));
     render(readCart());
@@ -450,15 +458,20 @@
             }
           : fallback;
 
+      try {
+        window.localStorage.setItem(ORDER_KEY, JSON.stringify(order));
+        window.sessionStorage.setItem(ORDER_BACKUP_KEY, JSON.stringify(order));
+      } catch (error) {
         try {
-          window.localStorage.setItem(ORDER_KEY, JSON.stringify(order));
-        } catch (error) {
+          window.sessionStorage.setItem(ORDER_BACKUP_KEY, JSON.stringify(order));
+        } catch (storageError) {
           fail('Your browser could not save the confirmation. Please try again.');
           return;
         }
+      }
 
-        writeCart([]);
-        window.location.assign(`success.html?order=${encodeURIComponent(order.id)}`);
+      writeCart([]);
+      window.location.assign(`success.html?order=${encodeURIComponent(order.id)}`);
       } catch (error) {
         fail('Something interrupted the order. Please try again.');
       }
@@ -470,7 +483,8 @@
     const empty = document.querySelector('[data-success-empty]');
     if (!content || !empty) return;
 
-    const stored = safeParse(window.localStorage.getItem(ORDER_KEY) || 'null', null);
+    const stored = safeParse(window.localStorage.getItem(ORDER_KEY) || 'null', null)
+      || safeParse(window.sessionStorage.getItem(ORDER_BACKUP_KEY) || 'null', null);
     const order = stored && Array.isArray(stored.items) && stored.items.length ? stored : null;
 
     if (!order) {
