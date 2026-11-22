@@ -8,7 +8,7 @@
     name: 'SCENT ENGINE',
     price: 54.99
   };
-  const SCENTS = ['Rain', 'Cedar', 'Moss', 'Vetiver', 'Pine', 'Birch'];
+  const SCENTS = ['Rabbit', 'Anise', 'Pheasant', 'Fish', 'Fennel', 'Neutral Cotton'];
   const MAX_QTY = 9;
   const money = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
 
@@ -152,7 +152,7 @@
 
     const scentLabel = document.querySelector('[data-scent-label]');
     const quantityInput = document.querySelector('#quantity');
-    let selectedScent = 'Rain';
+    let selectedScent = 'Rabbit';
 
     const quantity = () => {
       const value = Math.min(MAX_QTY, Math.max(1, Math.round(Number(quantityInput && quantityInput.value) || 1)));
@@ -162,7 +162,7 @@
 
     scentButtons.forEach((button) => {
       button.addEventListener('click', () => {
-        selectedScent = button.dataset.scent || 'Rain';
+        selectedScent = button.dataset.scent || 'Rabbit';
         scentButtons.forEach((item) => {
           const active = item === button;
           item.classList.toggle('is-selected', active);
@@ -506,7 +506,7 @@
         const variant = row.querySelector('[data-item-variant]');
         const lineTotal = row.querySelector('[data-item-total]');
 
-        if (variant) variant.textContent = `${item.scent || 'Rain'} · Qty ${item.quantity}`;
+        if (variant) variant.textContent = `${item.scent || 'Rabbit'} · Qty ${item.quantity}`;
         if (lineTotal) lineTotal.textContent = format(item.lineTotal || item.price * item.quantity);
         itemsRoot.appendChild(row);
       });

@@ -1,5 +1,5 @@
 const UNIT_PRICE = 54.99;
-const SCENTS = ['Rain', 'Cedar', 'Moss', 'Vetiver', 'Pine', 'Birch'];
+const SCENTS = ['Rabbit', 'Anise', 'Pheasant', 'Fish', 'Fennel', 'Neutral Cotton'];
 const MAX_QTY = 9;
 
 const round = (value) => Math.round(value * 100) / 100;

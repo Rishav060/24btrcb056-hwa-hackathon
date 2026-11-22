@@ -3353,11 +3353,11 @@ body.has-pointer .cursor-glow {
   box-shadow: 0 0 10px rgba(201, 214, 184, 0.6);
 }
 
-.cart-thumb[data-scent="Cedar"] span { background: #b08d67; }
-.cart-thumb[data-scent="Moss"] span { background: #6f8463; }
-.cart-thumb[data-scent="Vetiver"] span { background: #a8977a; }
-.cart-thumb[data-scent="Pine"] span { background: #8a9c7b; }
-.cart-thumb[data-scent="Birch"] span { background: #b3c19e; }
+.cart-thumb[data-scent="Anise"] span { background: #b08d67; }
+.cart-thumb[data-scent="Pheasant"] span { background: #6f8463; }
+.cart-thumb[data-scent="Fish"] span { background: #a8977a; }
+.cart-thumb[data-scent="Fennel"] span { background: #8a9c7b; }
+.cart-thumb[data-scent="Neutral Cotton"] span { background: #b3c19e; }
 
 .cart-thumb-small {
   width: 56px;
