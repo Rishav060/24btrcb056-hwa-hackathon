@@ -84,6 +84,7 @@
     // This handles the form submission
     document.getElementById('checkout-form').addEventListener('submit', function(e) {
         e.preventDefault(); // Prevents page reload
+        localStorage.setItem('order', 'ORD-12345');
         localStorage.removeItem('cart'); // Clears the cart
         window.location.href = 'success.html'; // Redirects to success page
     });
