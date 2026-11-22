@@ -10,9 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300..600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="js/main.js" defer></script>
-  <script src="js/cart.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=2">
+  <script src="js/main.js?v=2" defer></script>
+  <script src="js/cart.js?v=2" defer></script>
 </head>
 <body id="top" class="page-shop page-checkout">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -226,17 +226,5 @@
       <span class="checkout-item-total" data-item-total>$54.99</span>
     </li>
   </template>
-  <script>
-    // If the cart is empty, force SCENT ENGINE into it so the checkout form works
-if (!localStorage.getItem('cart') || localStorage.getItem('cart') === '[]') {
-    localStorage.setItem('cart', JSON.stringify([{ name: 'SCENT ENGINE', price: 54.99, qty: 1, scent: 'Rabbit' }]));
-}
-    document.querySelector('form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        localStorage.setItem('order', 'ORD-' + Math.floor(Math.random() * 100000));
-        localStorage.removeItem('cart');
-        window.location.href = 'success.html';
-    });
-</script>
 </body>
 </html>

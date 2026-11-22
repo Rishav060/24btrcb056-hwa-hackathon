@@ -13,9 +13,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300..600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="js/main.js" defer></script>
-  <script src="js/cart.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=2">
+  <script src="js/main.js?v=2" defer></script>
+  <script src="js/cart.js?v=2" defer></script>
 </head>
 <body id="top" class="page-shop page-product">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -64,31 +64,54 @@
     </nav>
   </header>
 
-  <main style="min-height: 80vh; padding: 100px 20px;">
-    <div style="max-width: 600px; margin: 0 auto; background: #121513; padding: 40px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-        <h2 style="color: #F1EFE8; font-family: 'Fraunces', serif; margin-bottom: 20px; font-size: 2rem;">Secure Checkout</h2>
-        
-        <form id="checkout-form" style="display: flex; flex-direction: column; gap: 15px;">
-            <input type="text" id="name" placeholder="Full Name" required style="padding: 15px; border-radius: 5px; border: 1px solid #333; background: #0B0D0C; color: #F1EFE8; font-size: 1rem;">
-            <input type="email" id="email" placeholder="Email Address" required style="padding: 15px; border-radius: 5px; border: 1px solid #333; background: #0B0D0C; color: #F1EFE8; font-size: 1rem;">
-            <input type="text" id="address" placeholder="Shipping Address" required style="padding: 15px; border-radius: 5px; border: 1px solid #333; background: #0B0D0C; color: #F1EFE8; font-size: 1rem;">
-            
-            <button type="submit" style="padding: 18px; border-radius: 5px; border: none; background: #9CAF88; color: #0B0D0C; font-weight: bold; font-size: 1.1rem; cursor: pointer; margin-top: 10px; transition: opacity 0.2s;">
-                Place Order
-            </button>
-        </form>
-    </div>
-</main>
+    <style>
+    .pp{max-width:1000px;margin:0 auto;padding:120px 20px 80px;display:grid;gap:40px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:start;color:#F1EFE8}
+    .pp img{width:100%;border-radius:12px;display:block}
+    .pp h1{font-family:'Fraunces',serif;font-size:2.4rem;margin:.3em 0}
+    .pp-price{font-size:1.6rem;margin:0 0 .6em}
+    .pp-scents{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 20px}
+    .pp-scents button{padding:10px 14px;border-radius:999px;border:1px solid #444;background:#0B0D0C;color:#F1EFE8;cursor:pointer}
+    .pp-scents button.is-selected{background:#9CAF88;color:#0B0D0C;border-color:#9CAF88}
+    .pp-qty{display:flex;align-items:center;gap:8px;margin-bottom:20px}
+    .pp-qty button{width:36px;height:36px;border-radius:8px;border:1px solid #444;background:#0B0D0C;color:#F1EFE8;cursor:pointer}
+    .pp-qty input{width:56px;height:36px;text-align:center;border-radius:8px;border:1px solid #444;background:#0B0D0C;color:#F1EFE8}
+    .pp-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .pp-note{margin-top:20px;font-size:.9rem;opacity:.75}
+  </style>
 
-<script>
-    // This handles the form submission
-    document.getElementById('checkout-form').addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevents page reload
-        localStorage.setItem('order', 'ORD-12345');
-        localStorage.removeItem('cart'); // Clears the cart
-        window.location.href = 'success.html'; // Redirects to success page
-    });
-</script>
+  <main id="main" class="shop-main">
+    <section class="pp" id="buy">
+      <div><img src="assets/images/hero-sniff.jpg" alt="A dog sniffing" decoding="async"></div>
+      <div>
+        <p class="eyebrow">Concept &middot; not yet tested on dogs</p>
+        <h1>SCENT ENGINE</h1>
+        <p class="pp-price">$54.99</p>
+        <p>A nose paddle changes the scent. Food is released on a separate schedule. No electronics, no app, no subscription.</p>
+
+        <p><strong>Starting scent:</strong> <span data-scent-label>Rabbit</span></p>
+        <div class="pp-scents" role="group" aria-label="Starting scent">
+          <button type="button" class="is-selected" aria-pressed="true" data-scent="Rabbit">Rabbit</button>
+          <button type="button" aria-pressed="false" data-scent="Anise">Anise</button>
+          <button type="button" aria-pressed="false" data-scent="Pheasant">Pheasant</button>
+          <button type="button" aria-pressed="false" data-scent="Fish">Fish</button>
+          <button type="button" aria-pressed="false" data-scent="Fennel">Fennel</button>
+          <button type="button" aria-pressed="false" data-scent="Neutral Cotton">Neutral Cotton</button>
+        </div>
+
+        <div class="pp-qty">
+          <button type="button" data-qty-down aria-label="Decrease quantity">&minus;</button>
+          <input id="quantity" type="number" min="1" max="9" step="1" value="1" aria-label="Quantity">
+          <button type="button" data-qty-up aria-label="Increase quantity">+</button>
+        </div>
+
+        <div class="pp-actions">
+          <button class="btn btn-primary" type="button" data-add-to-cart>Add to bag</button>
+          <button class="btn btn-ghost" type="button" data-buy-now>Buy now</button>
+        </div>
+        <p class="pp-note">Concept store: no payment is taken and nothing ships. Designed concept, pilot protocol included, not yet for unsupervised use.</p>
+      </div>
+    </section>
+  </main>
 
   <footer class="site-footer">
     <div class="container">
@@ -111,7 +134,7 @@
           <p class="footer-credit">Photography via Unsplash.</p>
         </div>
         <nav class="footer-nav" aria-label="Footer">
-          <a href="product.html">Product</a>
+          <a href="shop.html">Product</a>
           <a href="cart.html">Bag</a>
           <a href="index.html#features">Features</a>
           <a href="index.html#ritual">How it works</a>
