@@ -1,0 +1,21 @@
+{
+  "name": "24btrcb056-hwa-hackathon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rishav060/24btrcb056-hwa-hackathon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Rishav060/24btrcb056-hwa-hackathon/issues"
+  },
+  "homepage": "https://github.com/Rishav060/24btrcb056-hwa-hackathon#readme"
+}
