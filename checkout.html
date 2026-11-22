@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — SCENT ENGINE</title>
+  <meta name="description" content="Complete your SCENT ENGINE concept order. No payment is taken.">
+  <meta name="theme-color" content="#0a0c0b">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+</head>
+<body id="top" class="page-shop page-checkout">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav glass" aria-label="Primary">
+      <a class="brand" href="index.html" aria-label="SCENT ENGINE home">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="13.5" stroke="currentColor" stroke-opacity=".3"/>
+          <circle cx="16" cy="16" r="7.5" stroke="currentColor"/>
+          <circle cx="16" cy="16" r="2.6" fill="currentColor"/>
+          <circle cx="26.5" cy="10.5" r="1.8" fill="currentColor"/>
+        </svg>
+        <span class="brand-name">SCENT ENGINE</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#product">The engine</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#ritual">How it works</a></li>
+        <li><a href="index.html#concept">Concept</a></li>
+        <li class="nav-bag-menu"><a href="cart.html">Bag <span data-cart-count>0</span></a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a class="nav-bag" href="cart.html" aria-label="Bag, 0 items">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5.6 8.4h12.8l-1 11.1a2 2 0 0 1-2 1.8H8.6a2 2 0 0 1-2-1.8L5.6 8.4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M9 8.4V7a3 3 0 0 1 6 0v1.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span class="nav-bag-count" data-cart-count>0</span>
+        </a>
+        <a class="btn btn-primary nav-cta" href="product.html" data-magnetic>
+          <span>Buy <span class="nav-cta-price">$54.99</span></span>
+          <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="shop-main">
+    <section class="checkout-page" aria-labelledby="checkout-title">
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="cart.html">Bag</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Checkout</span>
+        </nav>
+
+        <div class="shop-page-head" data-reveal>
+          <p class="eyebrow">Checkout</p>
+          <h1 id="checkout-title">Complete the <em>ritual.</em></h1>
+          <p>One last step. This is a concept checkout &mdash; no payment details are collected and nothing is charged.</p>
+        </div>
+
+        <div class="checkout-layout">
+          <form class="checkout-form glass" data-checkout-form data-order-endpoint="/api/order" data-reveal>
+            <div class="form-section">
+              <p class="form-legend"><span>01</span> Contact</p>
+              <div class="field-grid">
+                <label class="field field--full">
+                  <span>Email</span>
+                  <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <p class="form-legend"><span>02</span> Shipping</p>
+              <div class="field-grid">
+                <label class="field">
+                  <span>First name</span>
+                  <input type="text" name="firstName" autocomplete="given-name" placeholder="First" required>
+                </label>
+                <label class="field">
+                  <span>Last name</span>
+                  <input type="text" name="lastName" autocomplete="family-name" placeholder="Last" required>
+                </label>
+                <label class="field field--full">
+                  <span>Address</span>
+                  <input type="text" name="address1" autocomplete="address-line1" placeholder="Street and number" required>
+                </label>
+                <label class="field field--full">
+                  <span>Apartment, suite <em>(optional)</em></span>
+                  <input type="text" name="address2" autocomplete="address-line2" placeholder="Anything the courier should know">
+                </label>
+                <label class="field">
+                  <span>City</span>
+                  <input type="text" name="city" autocomplete="address-level2" placeholder="City" required>
+                </label>
+                <label class="field">
+                  <span>Postal code</span>
+                  <input type="text" name="postal" autocomplete="postal-code" placeholder="Postal code" required>
+                </label>
+                <label class="field field--full">
+                  <span>Country</span>
+                  <span class="select-wrap">
+                    <select name="country" autocomplete="country-name" required>
+                      <option value="" selected disabled>Select country</option>
+                      <option value="India">India</option>
+                      <option value="United States">United States</option>
+                      <option value="United Kingdom">United Kingdom</option>
+                      <option value="Canada">Canada</option>
+                      <option value="Australia">Australia</option>
+                      <option value="Germany">Germany</option>
+                      <option value="France">France</option>
+                      <option value="Netherlands">Netherlands</option>
+                      <option value="Singapore">Singapore</option>
+                      <option value="United Arab Emirates">United Arab Emirates</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </span>
+                </label>
+                <label class="field field--full">
+                  <span>Delivery note <em>(optional)</em></span>
+                  <textarea name="note" rows="3" placeholder="A gate code, a safe place, anything helpful."></textarea>
+                </label>
+              </div>
+            </div>
+
+            <div class="checkout-concept">
+              <span class="concept-mark concept-mark-small" aria-hidden="true">i</span>
+              <p><strong>No payment is taken.</strong> SCENT ENGINE is a design concept and no physical product ships. Placing the order saves a confirmation in this browser so you can see the full buyer experience.</p>
+            </div>
+
+            <p class="form-error" data-form-error role="alert" hidden></p>
+
+            <button class="btn btn-primary btn-checkout" type="submit" data-checkout-submit>
+              <span data-checkout-label>Place concept order</span>
+              <span class="btn-price" data-checkout-total>$54.99</span>
+            </button>
+            <p class="secure-line">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <rect x="4.5" y="9" width="11" height="7.5" rx="2" stroke="currentColor" stroke-width="1.3"/>
+                <path d="M7.5 9V6.8a2.5 2.5 0 0 1 5 0V9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+              No card details. No charge. Just the ritual.
+            </p>
+          </form>
+
+          <aside class="checkout-summary" aria-label="Order summary">
+            <div class="summary-card glass">
+              <h2>Your order</h2>
+              <ul class="checkout-items" data-checkout-items></ul>
+              <a class="back-link" href="cart.html">Edit bag</a>
+
+              <dl class="summary-rows">
+                <div><dt>Subtotal</dt><dd data-checkout-subtotal>$0.00</dd></div>
+                <div><dt>Concept delivery</dt><dd>Included</dd></div>
+              </dl>
+              <div class="summary-total">
+                <span>Total</span>
+                <strong data-checkout-total>$0.00</strong>
+              </div>
+              <p class="summary-note">Every order is part of the concept experience. It has not been tested on dogs in real conditions, and production has not started.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <a class="brand footer-brand" href="index.html" aria-label="SCENT ENGINE home">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <circle cx="16" cy="16" r="13.5" stroke="currentColor" stroke-opacity=".3"/>
+            <circle cx="16" cy="16" r="7.5" stroke="currentColor"/>
+            <circle cx="16" cy="16" r="2.6" fill="currentColor"/>
+            <circle cx="26.5" cy="10.5" r="1.8" fill="currentColor"/>
+          </svg>
+          <span class="brand-name">SCENT ENGINE</span>
+        </a>
+        <p class="footer-tagline">The food runs out.<br><em>The scent doesn&rsquo;t.</em></p>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-legal">
+          <p>&copy; 2026 SCENT ENGINE. A design concept.</p>
+          <p class="footer-credit">Photography via Unsplash.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="product.html">Product</a>
+          <a href="cart.html">Bag</a>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#ritual">How it works</a>
+          <a href="index.html#concept">Concept</a>
+        </nav>
+        <a class="back-to-top" href="#top">Back to top <span aria-hidden="true">&uarr;</span></a>
+      </div>
+    </div>
+    <div class="footer-wordmark" aria-hidden="true">SCENT ENGINE</div>
+  </footer>
+
+  <template id="checkout-item-template">
+    <li class="checkout-item">
+      <span class="cart-thumb cart-thumb-small" aria-hidden="true"><span></span></span>
+      <div class="checkout-item-info">
+        <strong data-item-name>SCENT ENGINE</strong>
+        <span data-item-variant>Rain &middot; Qty 1</span>
+      </div>
+      <span class="checkout-item-total" data-item-total>$54.99</span>
+    </li>
+  </template>
+</body>
+</html>

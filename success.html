@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order confirmed — SCENT ENGINE</title>
+  <meta name="description" content="Your SCENT ENGINE concept order is confirmed. No payment was taken.">
+  <meta name="theme-color" content="#0a0c0b">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+</head>
+<body id="top" class="page-shop page-success">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav glass" aria-label="Primary">
+      <a class="brand" href="index.html" aria-label="SCENT ENGINE home">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="13.5" stroke="currentColor" stroke-opacity=".3"/>
+          <circle cx="16" cy="16" r="7.5" stroke="currentColor"/>
+          <circle cx="16" cy="16" r="2.6" fill="currentColor"/>
+          <circle cx="26.5" cy="10.5" r="1.8" fill="currentColor"/>
+        </svg>
+        <span class="brand-name">SCENT ENGINE</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#product">The engine</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#ritual">How it works</a></li>
+        <li><a href="index.html#concept">Concept</a></li>
+        <li class="nav-bag-menu"><a href="cart.html">Bag <span data-cart-count>0</span></a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a class="nav-bag" href="cart.html" aria-label="Bag, 0 items">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5.6 8.4h12.8l-1 11.1a2 2 0 0 1-2 1.8H8.6a2 2 0 0 1-2-1.8L5.6 8.4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M9 8.4V7a3 3 0 0 1 6 0v1.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span class="nav-bag-count" data-cart-count>0</span>
+        </a>
+        <a class="btn btn-primary nav-cta" href="product.html" data-magnetic>
+          <span>Buy <span class="nav-cta-price">$54.99</span></span>
+          <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="shop-main">
+    <section class="success-page" aria-labelledby="success-title">
+      <div class="container">
+        <div class="success-content" data-success-content hidden>
+          <div class="success-card glass">
+            <span class="success-mark" aria-hidden="true">
+              <span class="success-orbit"></span>
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="17" stroke="currentColor" stroke-opacity=".22"/>
+                <path d="m12 20.5 5.4 5.4L28.5 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+
+            <p class="eyebrow">Order confirmed</p>
+            <h1 id="success-title">Your concept order <em>is in.</em></h1>
+            <p class="success-lede">The ritual has been reserved. A confirmation lives below and in this browser &mdash; no payment was taken, and no physical product will ship.</p>
+
+            <div class="success-meta">
+              <div><span>Order</span><strong data-order-id>&mdash;</strong></div>
+              <div><span>Placed</span><strong data-order-date>&mdash;</strong></div>
+              <div><span>Total</span><strong data-order-total>&mdash;</strong></div>
+            </div>
+
+            <div class="success-section">
+              <h2>In the order</h2>
+              <ul class="success-items" data-order-items></ul>
+            </div>
+
+            <div class="success-grid">
+              <div class="success-panel">
+                <h3>Delivery</h3>
+                <p data-order-name>&mdash;</p>
+                <p data-order-address>&mdash;</p>
+                <p data-order-email>&mdash;</p>
+              </div>
+              <div class="success-panel">
+                <h3>What happens next</h3>
+                <ul class="success-steps">
+                  <li><span>01</span> Your concept order is saved.</li>
+                  <li><span>02</span> Nothing is charged or shipped.</li>
+                  <li><span>03</span> The scent library is yours to explore.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="checkout-concept success-concept">
+              <span class="concept-mark concept-mark-small" aria-hidden="true">i</span>
+              <p><strong>An honest note.</strong> SCENT ENGINE is a design concept. The nose paddle, the scent carousel and the timed food drop have not been tested on dogs in real conditions, and production has not started.</p>
+            </div>
+
+            <div class="success-actions">
+              <a class="btn btn-primary" href="index.html" data-magnetic>
+                <span>Back to the engine</span>
+                <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <a class="btn btn-ghost" href="product.html">Explore the scent library</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="success-empty glass" data-success-empty hidden>
+          <span class="empty-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="16" stroke="currentColor" stroke-opacity=".32"/>
+              <circle cx="20" cy="20" r="8" stroke="currentColor"/>
+              <circle cx="20" cy="20" r="2.6" fill="currentColor"/>
+              <circle cx="32" cy="12" r="1.7" fill="currentColor"/>
+            </svg>
+          </span>
+          <h1>No recent order found.</h1>
+          <p>Orders live in the browser that placed them. Start a new ritual whenever you are ready.</p>
+          <a class="btn btn-primary" href="product.html">Meet the engine</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <a class="brand footer-brand" href="index.html" aria-label="SCENT ENGINE home">
+          <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <circle cx="16" cy="16" r="13.5" stroke="currentColor" stroke-opacity=".3"/>
+            <circle cx="16" cy="16" r="7.5" stroke="currentColor"/>
+            <circle cx="16" cy="16" r="2.6" fill="currentColor"/>
+            <circle cx="26.5" cy="10.5" r="1.8" fill="currentColor"/>
+          </svg>
+          <span class="brand-name">SCENT ENGINE</span>
+        </a>
+        <p class="footer-tagline">The food runs out.<br><em>The scent doesn&rsquo;t.</em></p>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-legal">
+          <p>&copy; 2026 SCENT ENGINE. A design concept.</p>
+          <p class="footer-credit">Photography via Unsplash.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="product.html">Product</a>
+          <a href="cart.html">Bag</a>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#ritual">How it works</a>
+          <a href="index.html#concept">Concept</a>
+        </nav>
+        <a class="back-to-top" href="#top">Back to top <span aria-hidden="true">&uarr;</span></a>
+      </div>
+    </div>
+    <div class="footer-wordmark" aria-hidden="true">SCENT ENGINE</div>
+  </footer>
+
+  <template id="success-item-template">
+    <li class="success-item">
+      <span class="cart-thumb cart-thumb-small" aria-hidden="true"><span></span></span>
+      <div class="success-item-info">
+        <strong data-item-name>SCENT ENGINE</strong>
+        <span data-item-variant>Rain &middot; Qty 1</span>
+      </div>
+      <span class="success-item-total" data-item-total>$54.99</span>
+    </li>
+  </template>
+</body>
+</html>
